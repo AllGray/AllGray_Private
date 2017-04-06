@@ -1,0 +1,16 @@
+sudo apt-get update
+# this tells the OS to update its repository of packages, required for some of the packages to download.
+
+sudo apt-get install xdg-utils 
+# this is the dependency I had to install before it would work.
+
+wget https://dl.dropboxusercontent.com/u/87113035/chromium-browser-l10n_48.0.2564.82-0ubuntu0.15.04.1.1193_all.deb
+
+wget https://dl.dropboxusercontent.com/u/87113035/chromium-browser_48.0.2564.82-0ubuntu0.15.04.1.1193_armhf.deb
+
+wget https://dl.dropboxusercontent.com/u/87113035/chromium-codecs-ffmpeg-extra_48.0.2564.82-0ubuntu0.15.04.1.1193_armhf.deb
+
+sudo dpkg -i chromium-codecs-ffmpeg-extra_48.0.2564.82-0ubuntu0.15.04.1.1193_armhf.deb
+
+sudo dpkg -i chromium-browser-l10n_48.0.2564.82-0ubuntu0.15.04.1.1193_all.deb chromium-browser_48.0.2564.82-0ubuntu0.15.04.1.1193_armhf.deb
+# this is the command that will fail if you have other dependencies required. It will tell you which ones, just re-run the first sudo apt-get command again with the other dependencies instead of xdc-utils to install them.
