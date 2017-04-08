@@ -34,11 +34,11 @@ hostname $hostname_new
 apt-get -y update && apt-get -y install gcc libpam0g-dev unzip
 
 # Get all the files
-wget https://dl.gogs.io/0.11.4/raspi2_armv6.zip gogs_for_chip.zip
+wget https://github.com/AllGray/AllGray_Private/raw/master/GrayGit.zip
 
 # Unzip it
-unzip gogs_for_chip.zip
+unzip GrayGit.zip
 
 # Install it
-cd gogs
+cd GrayGit
 ./gogs web
