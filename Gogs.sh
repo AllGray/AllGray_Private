@@ -31,7 +31,7 @@ sed -i "s/$hostname_old/$hostname_new/g" /etc/hosts
 hostname $hostname_new
 
 # Install Dependecies
-apt-get -y update && apt-get -y install gcc libpam0g-dev unzip
+apt-get -y update && apt-get -y install gcc libpam0g-dev unzip git
 
 # Get all the files
 wget https://github.com/AllGray/AllGray_Private/raw/master/GrayGit.zip
