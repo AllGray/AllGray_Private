@@ -6,6 +6,10 @@ if [ "$EUID" -ne 0 ]
   exit
 fi
 
+# Clear screen
+reset
+
+# Setup Hostname
 read -p "Choose your new host name: " hostname_new
 read -r hostname_old < /etc/hostname
 sed -i "s/$hostname_old/$hostname_new/g" /etc/hostname
