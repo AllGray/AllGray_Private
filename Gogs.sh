@@ -34,12 +34,12 @@ hostname $hostname_new
 apt-get -y update && apt-get -y install gcc libpam0g-dev unzip git
 
 # Get all the files
-wget https://github.com/AllGray/AllGray_Private/raw/master/GrayGit.zip
+wget https://github.com/AllGray/AllGray_Private/raw/master/gogs.zip
 
 # Unzip it
-unzip GrayGit.zip
+unzip gogs.zip
 
 # Install it
-cd GrayGit
+cd gogs
 chmod +x gogs
 ./gogs web
