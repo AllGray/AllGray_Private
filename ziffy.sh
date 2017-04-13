@@ -9,8 +9,11 @@ fi
 # Clear the screen
 reset
 
+# Update and Upgrade
+apt -y update && apt -y upgrade
+
 # First step is to clone my github respository to get all the required files:
-apt update && apt install git -y && cd /opt/ && git clone https://github.com/KoljaWindeler/CHIP_TZATZIFFY.git
+apt install git -y && cd /opt/ && git clone https://github.com/KoljaWindeler/CHIP_TZATZIFFY.git
 
 # The fully equipped Tzatziffy II carries a EEPROM to fulfill the NTC requirement of auto configuration. All you need is to add this dtbo file to your chip:
 /opt/CHIP_TZATZIFFY/overlay/chip/install.sh
