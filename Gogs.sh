@@ -41,4 +41,5 @@ unzip GrayGit.zip
 
 # Install it
 cd GrayGit
+chmod +x gogs
 ./gogs web
