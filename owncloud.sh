@@ -6,6 +6,9 @@ if [ "$EUID" -ne 0 ]
   exit
 fi
 
+# Install dialog depend
+apt-get -y install dialog
+
 # Clear the screen
 reset
 
