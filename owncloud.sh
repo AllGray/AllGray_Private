@@ -16,7 +16,7 @@ reset
 mkdir /home/chip/temp
 
 # Display the dialog box
-dialog --title "Change Your HOSTNAME" --inputbox "Choose your new HOSTNAME:" 15 40 4>/home/chip/temp/hostname_new
+dialog --inputbox "Choose your new HOSTNAME:" 8 40 2>/home/chip/temp/hostname_new
 
 # Setup Hostname
 read -r hostname_new < /home/chip/temp/hostname_new
