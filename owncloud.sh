@@ -9,14 +9,12 @@ fi
 # Clear the screen
 reset
 
-# Grab the current hostname
-read -r hostname_old < /etc/hostname
 
 # Display the dialog box
-dialog --title "Change Your HOSTNAME" --inputbox "Choose your new HOSTNAME:" 15 40 4>/home/chip/git/AllGray_private/hostname_new
+dialog --title "Change Your HOSTNAME" --inputbox "Choose your new HOSTNAME:" 15 40 4>/home/chip/hostname_new
 
 # Setup Hostname
-read -r hostname_new < /home/chip/git/AllGray_private/hostname_new
+read -r hostname_new < /home/chip/hostname_new
 read -r hostname_old < /etc/hostname
 sed -i "s/$hostname_old/$hostname_new/g" /etc/hostname
 sed -i "s/$hostname_old/$hostname_new/g" /etc/hosts
