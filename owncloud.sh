@@ -9,19 +9,21 @@ fi
 # Clear the screen
 reset
 
+# Make temp dir
+mkdir /home/chip/temp
 
 # Display the dialog box
-dialog --title "Change Your HOSTNAME" --inputbox "Choose your new HOSTNAME:" 15 40 4>/home/chip/hostname_new
+dialog --title "Change Your HOSTNAME" --inputbox "Choose your new HOSTNAME:" 15 40 4>/home/chip/temp/hostname_new
 
 # Setup Hostname
-read -r hostname_new < /home/chip/hostname_new
+read -r hostname_new < /home/chip/temp/hostname_new
 read -r hostname_old < /etc/hostname
 sed -i "s/$hostname_old/$hostname_new/g" /etc/hostname
 sed -i "s/$hostname_old/$hostname_new/g" /etc/hosts
 
 # Setup OwnCloud Files
-wget -nv https://download.owncloud.org/download/repositories/stable/Debian_8.0/Release.key -O Release.key
-apt-key add - < Release.key
+wget -nv https://download.owncloud.org/download/repositories/stable/Debian_8.0/Release.key -O /home/chip/temp/Release.key
+apt-key add - < /home/chip/temp/Release.key
 
 # Add the OwnCloud repository
 sh -c "echo 'deb http://download.owncloud.org/download/repositories/stable/Debian_8.0/ /' > /etc/apt/sources.list.d/owncloud.list"
@@ -71,11 +73,11 @@ chmod -R 775 /media/ownclouddrive
 chown -R www-data:www-data /media/ownclouddrive
 
 # Grab Local IP address
-hostname -I > local_ip.txt
-read -r local_ip < local_ip.txt
+hostname -I > /home/chip/temp/local_ip.txt
+read -r local_ip < /home/chip/temp/local_ip.txt
 
 # cleanup
-rm -r Release.key owncloud-chip-installer.sh local_ip.txt
+rm -r /home/chip/temp
 
 # Restart Apache
 systemctl restart apache2
