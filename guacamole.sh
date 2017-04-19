@@ -11,7 +11,7 @@ fi
 # Clear the screen
 reset
 
-# Install dialog depend
+# Install zenity depend
 apt-get -y update && apt-get -y install zenity
 
 # Make temp dir
@@ -23,14 +23,14 @@ read -r hostname_old < /etc/hostname
 sed -i "s/$hostname_old/$hostname_new/g" /etc/hostname
 sed -i "s/$hostname_old/$hostname_new/g" /etc/hosts
 
-mysqlrootpassword=$(zenity --entry --title="MySQL Setup" --text="Choose a MySQL Password:")
+mysqlrootpassword=$(zenity --password --title="MySQL Setup" --text="Choose a MySQL Password:")
 
 # setup for MySQL Root
 debconf-set-selections <<< "mysql-server mysql-server/root_password password $mysqlrootpassword"
 debconf-set-selections <<< "mysql-server mysql-server/root_password_again password $mysqlrootpassword"
 
 # Grab a password for Guacamole Database User Account
-guacdbuserpassword=$(zenity --entry --title="MySQL Setup" --text="Enter the password that will be used for Guacamole Database:")
+guacdbuserpassword=$(zenity --password --title="MySQL Setup" --text="Enter the password that will be used for Guacamole Database:")
 
 # Install Features
 apt-get update
