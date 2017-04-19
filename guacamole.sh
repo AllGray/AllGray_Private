@@ -6,38 +6,31 @@ if [ "$EUID" -ne 0 ]
   exit
 fi
 
-# Grab hostname
-read -r hostname_old < /etc/hostname
+
 
 # Clear the screen
 reset
 
 # Install dialog depend
-apt-get -y install dialog
+apt-get -y update && apt-get -y install zenity
 
 # Make temp dir
 mkdir /home/chip/temp
 
-# Display the dialog box
-dialog --inputbox "Choose your new HOSTNAME:" 8 40 2>/home/chip/temp/hostname_new
-
 # Setup Hostname
-read -r hostname_new < /home/chip/temp/hostname_new
+hostname_new=$(zenity --entry --title="hostname:" --text="Choose a new hostname:")
 read -r hostname_old < /etc/hostname
 sed -i "s/$hostname_old/$hostname_new/g" /etc/hostname
 sed -i "s/$hostname_old/$hostname_new/g" /etc/hosts
 
-# Setup MySQL
-dialog --inputbox "Enter the password that will be used for MySQL Root:" 8 40 2>/home/chip/temp/mysqlrootpassword
-read -r mysqlrootpassword < /home/chip/temp/mysqlrootpassword
+mysqlrootpassword=$(zenity --entry --title="MySQL Setup" --text="Choose a MySQL Password:")
 
 # setup for MySQL Root
 debconf-set-selections <<< "mysql-server mysql-server/root_password password $mysqlrootpassword"
 debconf-set-selections <<< "mysql-server mysql-server/root_password_again password $mysqlrootpassword"
 
 # Grab a password for Guacamole Database User Account
-dialog --inputbox "Enter the password that will be used for Guacamole Database:" 8 40 2>/home/chip/temp/guacdbuserpassword
-read -r guacdbuserpassword < /home/chip/temp/guacdbuserpassword
+guacdbuserpassword=$(zenity --entry --title="MySQL Setup" --text="Enter the password that will be used for Guacamole Database:")
 
 # Install Features
 apt-get update
@@ -125,7 +118,7 @@ read -r local_ip < local_ip.txt
 # Cleanup
 rm -rf guacamole-*
 rm -rf mysql-connector-java-5.1.41*
-rm -rf temp
+rm -rf /home/chip/temp
 
 # Create Readme.txt in /home/chip
 cat >/home/chip/guacamole_README.txt <<EOL
