@@ -9,7 +9,7 @@ fi
 mkdir /home/chip/temp/
 
 # Display the dialog box
-dialog --inputbox "wait 5 seconds and then type TEST" 8 40 2 ; sleep 10>/home/chip/temp/testing2
+dialog --inputbox "wait 5 seconds and then type TEST" 8 40 2 ; sleep 10 > /home/chip/temp/testing2
 
 # Finishing u
 echo "Check in /home/chip/temp/ to see if the testfile was created"
