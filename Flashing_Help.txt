@@ -1,0 +1,36 @@
+*Flashing Help
+
+
+hello. I see a few posts every day about the Chrome flasher not working on windows, and the answers always seem to the be same. This is my troubleshooting steps when nothing is working. I hope this can help other people on here.
+
+First of all. Make sure you have the [chrome extension](http://flash.getchip.com/) installed as well as the [Driver](https://s3-us-west-2.amazonaws.com/getchip.com/extension/drivers/windows/InstallDriver2.exe)
+When all this is set and done do a restart of you computer to make sure everything is where it is suppose to be.
+
+And let's get started.
+
+Make sure your USB cable can handle DATA transfer. This is the most common problem. Most new USB cables will work just fine, and if you have one that came with a smartphone in the last few years then you are golden
+
+Make sure you have connected you jumper wire (or paperclip) to FEL and Ground correctly. This step is very important, not only because you cannot flash without it, but you can break something if done incorrectly.
+
+Make sure you use a USB 2 port on your computer. Using a USB 3 port is possible, but it gets a little wonky, and is it a hit 'n miss a lot of the time.
+
+If the flasher get's stuck at any part of the flashing process, then there is a chance it lost lost internet connection to the server where the CHIP image is located. Try to download the image instead (by pressing the little cloud icon) and flash using that image in the "choose a file" option.
+
+Give it time. This is not a process that takes 10 hours, but also not 10 minutes. Make a cup of coffee, open a beer, or go for a run.. If the flasher starts, there is a good chance it will finish.
+
+Here is a few PockerCHIP specific tips i have found over the past few month.
+
+The software "Flash Software" mode is not working. No matter how many times i tried to use it, it never worked for me.
+
+The most reliable way i have found to flash a PocketCHIP is to connect the FEL and Ground from the top header of the PocketCHIP, while leaving the CHIP in the device.
+
+That was my little write up. I goes without saying that you have to make sure you are on the latest version of Chrome, and make sure the Extension is updated.
+
+If non of this worked, then use the search function here on the forum before posting. Someone likely already had the same problem as you..
+
+Flashing Help
+
+
+flashing with this link? http://flash.getchip.com/?scrub1 This is our super secret cheat code for scrubbing the NAND before a flash. If that doesn't work, shoot us an email at ahoyahoy@nextthing.co
+
+NOTE: if you're coming to this post for troubleshooting, scrubbing should only be done as a last-ditch effort to revive a CHIP after all other venues have been explored. Please don't throw this link around as a generic fix-all for flashing.
