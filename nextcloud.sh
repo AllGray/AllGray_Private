@@ -105,13 +105,11 @@ sed -ie 's/^upload_max_filesize =.*$/upload_max_filesize = 20M/g' /etc/php5/apac
 sed -ie 's/^post_max_size =.*$/post_max_size = 20M/g' /etc/php5/apache2/php.ini
 sed -ie 's/^max_execution_time =.*$/max_execution_time = 300/g' /etc/php5/apache2/php.ini
 
-# Give apache access to Zurmo
-sudo chown -R www-data /var/www/html/zurmo
 
 # Restart Apache
 systemctl restart apache2
 
-# Create zurmo DB and grant zurmo User permissions to it
+# Create nextcloud DB and grant nextclouduser User permissions to it
 
 # SQL Code
 SQLCODE="
