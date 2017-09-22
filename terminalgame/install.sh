@@ -16,7 +16,7 @@ apt-get -y update
 apt-get install -y jq whiptail
 
 # Install Games
-apt-get -y install angband bsdgames crawl dopewars empire greed mancala moon-buggy nethack-console ninvaders nsnake pacman4console ski slashem tint tome
+apt-get -y install crawl dopewars empire greed mancala moon-buggy nethack-console ninvaders nsnake slashem tint
 
 wget https://raw.githubusercontent.com/AllGray/NAME/master/launcher.sh
 chmod +x launcher.sh
