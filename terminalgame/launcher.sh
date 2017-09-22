@@ -1,49 +1,40 @@
 #!/bin/bash
+whiptail --title "TerminalGAME" --menu --separate-output "Choose:" 20 78 15 \
+"$P1" "Crawl" \
+"$P2" "Dopewars" \
+"$P3" "Empire" \
+"$P4" "Greed" \
+"$P5" "Mancala" \
+"$P6" "Moon Buggy" \
+"$P7" "NetHack Console" \
+"$P8" "Ninvaders" \
+"$P9" "Nsnake" \
+"$P10" "Slash 'em" \
+"$P11" "Tint" 2>games
 
-# Check if user is root
-if [ "$EUID" -ne 0 ]
-  then echo "Please run as root"
-  exit
-fi
+CHOICE=$(cat games)
+case $CHOICE in
+      $P1) crawl
+      ;;
+      $P2) dopewars
+      ;;
+      $P3) empire
+      ;;
+      $P4) greed
+      ;;
+      $P5) mancala
+      ;;
+      $P6) moon-buggy
+      ;;
+      $P7) nethack-console
+      ;;
+      $P8) ninvaders
+      ;;
+      $P9) nsnake
+      ;;
+      $P10) slashem
+      ;;
+      $P11) tint
 
-whiptail --msgbox "CHIPinstaller ready, select with spacebar" 8 78
-
-whiptail --title "CHIPinstaller" --checklist --separate-output "Choose:" 20 78 15 \
-"$P3" "" off \
-"$P4" "" off \
-"$P5" "" off \
-"$P6" "" off \
-"$P7" "" off \
-"$P8" "" off \
-"$P9" "" off \
-"$P10" "" off \
-"$P11" "" off \
-"$P14" "" off \
-"$P15" "" off 2>results
-
-while read choice
-  do
-    case $choice in		
-      $P3) crawl
-      ;;
-      $P4) dopewars
-      ;;
-      $P5) empire
-      ;;
-      $P6) greed
-      ;;
-      $P7) mancala max-ply
-      ;;
-      $P8) moon-buggy
-      ;;
-      $P9) nethack-console
-      ;;
-      $P10) ninvaders
-      ;;
-      $P11) nsnake
-      ;;
-      $P14) slashem
-      ;;
-      $P15) tint
     esac
-done < results
+done < games
