@@ -1,41 +1,40 @@
 #!/bin/bash
 
 whiptail --title "TerminalGAME" --menu --separate-output "Choose:" 20 78 15 \
-"$P1" "Crawl"  \
-"$P2" "Dopewars"  \
-"$P3" "Empire"  \
-"$P4" "Greed"  \
-"$P5" "Mancala"  \
-"$P6" "Moon Buggy"  \
-"$P7" "NetHack Console"  \
-"$P8" "Ninvaders"  \
-"$P9" "Nsnake"  \
-"$P10" "Slash 'em"  \
-"$P11" "Tint"  2>games
+"Crawl" "role-playing text based game"  \
+"Dopewars" "Clean up New York for drugs"  \
+"Empire" "War simulation"  \
+"Greed" "Eat as much as possible"  \
+"Mancala" "Mancala in the Terminal"  \
+"Moon-Buggy" "Jump around in your mooncar"  \
+"NetHack" "Dungeon exploration game"  \
+"Ninvaders" "Space Invaders in the Terminal"  \
+"Nsnake" "Snake in the Terminal"  \
+"Slash-em" "Variant of NetHack"  \
+"Tint" "This Is Not Tetris"  2>games
 
 CHOICE=$(cat games)
 case $CHOICE in		
-      P1) crawl
+      Crawl) crawl
       ;;
-      P2) dopewars
+	  Dopewars) dopewars
       ;;
-      P3) empire
+      Empire) empire
       ;;
-      P4) greed
+      Greed) greed
       ;;
-      P5) mancala
+      Mancala) mancala
       ;;
-      P6) moon-buggy
+      Moon-Buggy) moon-buggy
       ;;
-      P7) nethack-console
+      NetHack) nethack-console
       ;;
-      P8) ninvaders
+      Ninvaders) ninvaders
       ;;
-      P9) nsnake
+      Nsnake) nsnake
       ;;
-      P10) slashem
+      Slash-em) slashem
       ;;
-      P11) tint
+      Tint) tint
       ;;
     esac
-done < games
