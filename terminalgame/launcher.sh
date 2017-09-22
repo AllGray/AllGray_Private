@@ -9,8 +9,6 @@ fi
 whiptail --msgbox "CHIPinstaller ready, select with spacebar" 8 78
 
 whiptail --title "CHIPinstaller" --checklist --separate-output "Choose:" 20 78 15 \
-"$P1" "" off \
-"$P2" "" off \
 "$P3" "" off \
 "$P4" "" off \
 "$P5" "" off \
@@ -20,19 +18,12 @@ whiptail --title "CHIPinstaller" --checklist --separate-output "Choose:" 20 78 1
 "$P9" "" off \
 "$P10" "" off \
 "$P11" "" off \
-"$P12" "" off \
-"$P13" "" off \
 "$P14" "" off \
-"$P15" "" off \
-"$P16" "" off 2>results
+"$P15" "" off 2>results
 
 while read choice
   do
     case $choice in		
-      $P1) angband
-      ;;
-      $P2) bsdgames
-      ;;
       $P3) crawl
       ;;
       $P4) dopewars
@@ -41,7 +32,7 @@ while read choice
       ;;
       $P6) greed
       ;;
-      $P7) mancala
+      $P7) mancala max-ply
       ;;
       $P8) moon-buggy
       ;;
@@ -51,14 +42,8 @@ while read choice
       ;;
       $P11) nsnake
       ;;
-      $P12) pacman4console
-      ;;
-      $P13) ski
-      ;;
       $P14) slashem
       ;;
       $P15) tint
-      ;;
-      $P16) tome
     esac
 done < results
